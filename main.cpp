@@ -139,15 +139,11 @@ int length(int digit[])
 
 void final (int n)
 {
-	cout << "Twoja liczba to: " << n << ", slownie: ";
-	show(n);
-	cout << endl;
+	cout << "Twoja liczba to: " << n << ", slownie: "; show(n); cout << endl;
 	unsigned long long k = coeffcient(n); 
 	if (k == 0)
 		return;
-	cout << "jej wspolczynnik to: " << k << ", czyli ";
-	show(k);
+	cout << "jej wspolczynnik to: " << k << ", czyli ";	show(k);
 	unsigned long long suma = coeffcient(n)*n;
-	cout << "\nsuma wynosi: " << suma << " slownie: ";
-	show(suma);
+	cout << "\nsuma wynosi: " << suma << " slownie: "; 	show(suma);
 }
