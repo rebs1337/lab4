@@ -143,7 +143,7 @@ void final (int n)
 	unsigned long long k = coeffcient(n); 
 	if (k == 0)
 		return;
-	cout << "jej wspolczynnik to: " << k << ", czyli ";	show(k);
+	cout << "jej wspolczynnik to: " << k << ", czyli "; show(k);
 	unsigned long long suma = coeffcient(n)*n;
-	cout << "\nsuma wynosi: " << suma << " slownie: "; 	show(suma);
+	cout << "\nsuma wynosi: " << suma << " slownie: "; show(suma);
 }
