@@ -48,14 +48,12 @@ void show (int n)
 {
 	if (n == 1000000)
 	{
-		string milion = "milion ";
-		cout << milion;
+		cout << "milion ";
 		return;
 	}
 	if (n == 0)
 	{
-		string zero = "zero ";
-		cout << zero;
+		cout << "zero ";
 		return;
 	}
 	if (n > 1000000)
