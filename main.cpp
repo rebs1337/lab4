@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 const int N = 6;
@@ -12,9 +14,16 @@ void final (int n);
 
 int main(int argc, char *argv[])
 {
+	clock_t start, stop;
+	double timer;
+	start = clock();
 	int n = atoi(argv[1]);
 	final(n);
-	cout << endl << endl;
+	stop = clock();
+	timer = double(stop-start)/CLOCKS_PER_SEC;
+	cout << endl << "Czas dzialania = " << fixed << timer;
+
+	cout << endl << "###################################################"<< endl;
 }
 
 int coeffcient (int n)
@@ -29,13 +38,15 @@ int coeffcient (int n)
 	while (total > 0)
 	{
 		if (total % 10 == 1 || total % 10 == 0)
+		{
 			total /= 10;
+		}
 		else
 		{
 			k++;
 			total = n * k;
 		}
-		if (k > 1000000)
+		if (k > 1000000 || k < 0)
 		{
 			cout << "wspolczynnik i suma sa za duze, nie przeczytam! ";
 			return k = 0;
@@ -56,7 +67,7 @@ void show (int n)
 		cout << "zero ";
 		return;
 	}
-	if (n > 1000000)
+	if (n > 1000000 || n < 0)
 	{
 		cout << "*liczba za duza, nie umiem przeczytac* ";
 		return;
@@ -72,7 +83,7 @@ void show (int n)
 		{"sto ","dwiescie ", "trzysta ", "czterysta ", "piecset ", "szescset ", "siedemset ", "osiemset ", "dziewiecset "}
 	};
 	string tysiac[3] = {"tysiac ", "tysiace ", "tysiecy "};
-	
+
 	switch (lth)
 	{
 		case 6:
@@ -87,7 +98,7 @@ void show (int n)
 		case 4:
 			if (digit[3] != 0 && digit[4] != 1)
 			{
-				if (digit[3] == 1 && digit[4] == 0)
+				if (digit[3] == 1 && digit[4] == 0 && digit[5]==0)
 					cout << tysiac[0];
 				else
 				{
@@ -118,7 +129,6 @@ void show (int n)
 			if (digit[0] != 0)
 			{
 				cout << numerals[0][(digit[0])-1];
-				break;
 			}
 		}
 	delete [] digit;
@@ -143,5 +153,5 @@ void final (int n)
 		return;
 	cout << "jej wspolczynnik to: " << k << ", czyli "; show(k);
 	unsigned long long suma = coeffcient(n)*n;
-	cout << "\nsuma wynosi: " << suma << " slownie: "; show(suma);
+	cout << "\nIloraz wynosi: " << suma << " slownie: "; show(suma);
 }
